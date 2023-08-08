@@ -12,18 +12,18 @@
       >
         <div class="relative w-full max-h-full" :class="size">
           <!-- Modal content -->
-          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <div class="relative bg-white rounded-lg shadow">
             <!-- Modal header -->
             <div
-              class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"
+              class="flex items-start justify-between p-4 border-b rounded-t"
             >
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+              <h3 class="text-xl font-semibold text-gray-900">
                 {{ title }}
               </h3>
               <button
                 type="button"
                 @click="handleCloseModal"
-                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
               >
                 <svg
                   class="w-3 h-3"
@@ -53,12 +53,12 @@
             </div>
             <!-- Modal footer -->
             <div
-              class="flex items-center justify-items-end p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600"
+              class="flex items-center justify-items-end p-6 space-x-2 border-t border-gray-200 rounded-b"
             >
               <button
                 data-modal-hide="modalEl"
                 type="button"
-                class="text-gray-500 bg-slate-200 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                class="text-gray-500 bg-slate-200 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 :bg-gray-700"
                 @click="handleCloseModal"
               >
                 Close
@@ -88,7 +88,7 @@ export default {
         placement: "bottom-right",
         backdrop: "dynamic",
         backdropClasses:
-          "bg-gray-900 transition-opacity bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40",
+          "bg-gray-900 transition-opacity bg-opacity-50 fixed inset-0 z-40",
         closable: false,
         onHide: () => {},
         onShow: () => {},

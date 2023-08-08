@@ -23,6 +23,9 @@ const Modal = {
     reset({ commit }, message) {
       commit("reset", message);
     },
+    resetBody({ commit }, value) {
+      commit("resetBody", value);
+    },
   },
   mutations: {
     title(state, title) {
@@ -49,6 +52,9 @@ const Modal = {
       state.size = null;
       state.modal = null;
       state.status = null;
+    },
+    resetBody(state, value) {
+      state.body = value;
     },
   },
   getters: {},

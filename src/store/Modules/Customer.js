@@ -68,6 +68,7 @@ const Customer = {
             "Thêm người dùng vào hệ thống thành công!",
             { root: true }
           );
+          dispatch("modal/resetBody", "", { root: true });
           return true;
         } else {
           dispatch(

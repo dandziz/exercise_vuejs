@@ -36,15 +36,15 @@
           <div>
             <label
               for="username"
-              class="font-sans block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              class="font-sans block mb-2 text-sm font-medium text-gray-900"
               >Tên người dùng</label
             >
             <div class="flex">
               <span
-                class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600"
+                class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md"
               >
                 <svg
-                  class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                  class="w-4 h-4 text-gray-500"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -59,7 +59,7 @@
                 type="text"
                 id="username"
                 name="username"
-                class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"
                 v-model="username"
                 :rules="usernameRules"
                 :class="{
@@ -72,7 +72,7 @@
           <div>
             <label
               for="fullname"
-              class="font-sans block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              class="font-sans block mb-2 text-sm font-medium text-gray-900"
               >Họ và tên</label
             >
             <Field
@@ -91,7 +91,7 @@
           <div>
             <label
               for="input-group-1"
-              class="font-sans block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              class="font-sans block mb-2 text-sm font-medium text-gray-900"
               >Email</label
             >
             <div class="relative">
@@ -99,7 +99,7 @@
                 class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none"
               >
                 <svg
-                  class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                  class="w-4 h-4 text-gray-500"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -117,7 +117,7 @@
                 type="text"
                 id="email"
                 name="email"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
                 placeholder="name@flowbite.com"
                 v-model="email"
                 :rules="emailRules"
@@ -131,14 +131,14 @@
           <div>
             <label
               for="password"
-              class="font-sans block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              class="font-sans block mb-2 text-sm font-medium text-gray-900"
               >Password</label
             >
             <Field
               type="password"
               id="password"
               name="password"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               placeholder="•••••••••"
               autocomplete=""
               v-model="password"
@@ -152,7 +152,7 @@
           <div>
             <label
               for="phone_number"
-              class="font-sans block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              class="font-sans block mb-2 text-sm font-medium text-gray-900"
               >Số điện thoại</label
             >
             <Field
@@ -171,7 +171,7 @@
           <div>
             <label
               for="address"
-              class="font-sans block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              class="font-sans block mb-2 text-sm font-medium text-gray-900"
               >Địa chỉ</label
             >
             <Field
@@ -190,7 +190,7 @@
           <div>
             <label
               for="id_card"
-              class="font-sans block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              class="font-sans block mb-2 text-sm font-medium text-gray-900"
               >Số CMND (CCCD)</label
             >
             <Field
@@ -211,7 +211,7 @@
           <div>
             <label
               for="tags_multiple"
-              class="font-sans block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              class="font-sans block mb-2 text-sm font-medium text-gray-900"
               >Chọn thẻ tags</label
             >
             <Field
@@ -221,7 +221,7 @@
               name="selectedTags"
               v-model="selectedTags"
               :rules="tagsRules"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             >
               <option value="Vip">VIP</option>
               <option value="Active">ACTIVE</option>
@@ -232,7 +232,7 @@
         </div>
         <div class="grid gap-6 mb-6 md:grid-cols-4">
           <button
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
           >
             Thêm người dùng
           </button>
@@ -380,22 +380,16 @@ export default {
         };
         const isAdd = this.$store.dispatch("customer/addCustomer", customer);
         if (isAdd) {
-          this.resetForm();
           this.$store.state.modal.modal.hide();
+        } else {
+          this.$store.dispatch(
+            "alert/error",
+            "Thêm người dùng thất bại vui lòng thử lại!"
+          );
         }
       } else {
         this.error_selectedTags = "Hãy chọn ít nhất 1 thẻ cho người dùng!";
       }
-    },
-    resetForm() {
-      this.username = "";
-      this.fullname = "";
-      this.email = "";
-      this.password = "";
-      this.phone_number = "";
-      this.address = "";
-      this.id_card = "";
-      this.selectedTags = [];
     },
     handleFileChange(event) {
       let rawImg;
