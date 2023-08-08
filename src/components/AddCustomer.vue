@@ -359,7 +359,7 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
+    async onSubmit() {
       if (
         this.selectedTags.length > 0 &&
         this.sourceImageProfile !=
@@ -378,15 +378,18 @@ export default {
           tags: Array.from(this.selectedTags),
           profile_picture: this.sourceImageProfile,
         };
-        const isAdd = this.$store.dispatch("customer/addCustomer", customer);
-        if (isAdd) {
-          this.$store.state.modal.modal.hide();
-        } else {
-          this.$store.dispatch(
-            "alert/danger",
-            "Thêm người dùng thất bại vui lòng thử lại!"
-          );
-        }
+        this.$store
+          .dispatch("customer/addCustomer", customer)
+          .then((response) => {
+            if (response) {
+              this.$store.state.modal.modal.hide();
+            } else {
+              this.$store.dispatch(
+                "alert/danger",
+                "Thêm người dùng thất bại vui lòng thử lại!"
+              );
+            }
+          });
       } else {
         this.error_selectedTags = "Hãy chọn ít nhất 1 thẻ cho người dùng!";
       }
