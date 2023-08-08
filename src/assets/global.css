@@ -1,0 +1,76 @@
+:root {
+  --dark: #212121;
+  --light: #f3f3f3;
+  --font: DVN-Poppins;
+  --font-label: Roboto;
+  --primary-font-color: rgba(77, 77, 77, 0.75);
+  --primary-color: #0070D2;
+  --orange: #F57212;
+  --white: #FFFCFC;
+  --primary-white: #FFFFFF;
+  --grey: #CECDCD;
+  --font-size: 16px;
+  --light-grey: #A4A4A4;
+  --border: rgba(0, 0, 0, 0.25);
+  --primary-orange: #DD7A01;
+  --border-orange: #DF6106;
+  --black: #000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font);
+}
+
+body {
+  font-size: 16px;
+  width: 100%;
+  font-style: normal;
+  line-height: normal !important;
+}
+
+p {
+  font-family: var(--font);
+}
+
+button {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input:focus {
+  outline-color: var(--primary-color);
+}
+
+@media screen and (max-width: 640px) and (max-height: 360px) {
+  .my-pagination-custom.mt-2{
+    margin-top: 0;
+  }
+  .my-pagination-custom.mb-2{
+    margin-bottom: 0;
+  }
+  .my-pagination-custom .h-8 {
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 414.4px) and (max-height: 915.2px) {
+  .my-pagination .h-8 {
+    height: 32px;
+  }
+  .my-pagination {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .my-pagination-custom.mt-2{
+    margin-top: 8px;
+  }
+  .my-pagination-custom.mb-2{
+    margin-bottom: 8px;
+  }
+}
