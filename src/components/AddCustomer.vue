@@ -19,7 +19,9 @@
                 class="fa-solid fa-camera absolute right-0 bottom-1 bg-[#f9f8f8] p-1 rounded-full"
               ></i>
             </label>
-            <span class="error mt-2">{{ errors.profile_picture }}</span>
+            <span class="error mt-2">{{
+              error_profile_picture || errors.profile_picture
+            }}</span>
             <Field
               type="file"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 hidden"
@@ -27,8 +29,8 @@
               name="profile_picture"
               v-model="profile_picture"
               accept="image/*"
-              @change="handleFileChange"
               :rules="profile_pictureRules"
+              @change="handleFileChange($event, errors.profile_picture)"
             />
           </div>
         </div>
@@ -268,11 +270,6 @@ yup.addMethod(yup.string, "uniqueUsername", function (message) {
     }
   });
 });
-yup.addMethod(yup.array, "atLeastOneSelected", function (message) {
-  return this.test("atLeastOneSelected", message, function (value) {
-    console.log(value);
-  });
-});
 const usernameRules = yup
   .string()
   .required("Hãy nhập tên người dùng của người dùng!")
@@ -301,6 +298,12 @@ const id_cardRules = yup
 const profile_pictureRules = yup.object().shape({
   name: yup.string().required("Hãy chọn ảnh đại diện cho người dùng!"),
   type: yup.string().matches(/^image\//, "Vui lòng chọn một tệp hình ảnh."),
+  file: yup
+    .mixed()
+    .test("fileSize", "Kích thước ảnh phải nhỏ hơn 60KB!", (value) => {
+      if (!value) return false;
+      return value.size <= 60 * 1024;
+    }),
 });
 const tagsRules = yup
   .array()
@@ -353,13 +356,17 @@ export default {
       address: "",
       id_card: "",
       errors: {},
-      error_selectedTags: "",
-      profile_picture: {},
+      error_profile_picture: "",
+      profile_picture: {
+        name: "",
+        type: "",
+        file: "",
+      },
       sourceImageProfile: require("../assets/images/AddCustomer/no-thumb.png"),
     };
   },
   methods: {
-    async onSubmit() {
+    onSubmit() {
       if (
         this.selectedTags.length > 0 &&
         this.sourceImageProfile !=
@@ -403,12 +410,24 @@ export default {
           rawImg = reader.result;
           this.sourceImageProfile = rawImg;
         };
-        reader.readAsDataURL(file);
         const convertedFile = {
           name: file.name,
           type: file.type,
+          file: file,
         };
         this.profile_picture = convertedFile;
+        if (/^image\//.test(file.type)) {
+          if (file.size <= 60 * 1024) {
+            reader.readAsDataURL(file);
+            this.error_profile_picture = "";
+          } else {
+            this.error_profile_picture = "Kích thước ảnh phải nhỏ hơn 60KB!";
+          }
+        } else {
+          this.error_profile_picture = "Vui lòng chọn một tệp hình ảnh.";
+        }
+      } else {
+        this.error_profile_picture = "Hãy chọn ảnh đại diện cho người dùng!!!";
       }
     },
   },

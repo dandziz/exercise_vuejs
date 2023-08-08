@@ -122,11 +122,11 @@ export default {
       this.loading = true;
       const { account, password, memory } = this;
       if (this.account && this.password) {
-        this.login({ account, password, memory });
+        this.login({ account, password, memory }).then((response) => {
+          console.log(response);
+          if (response === "failed") this.loading = false;
+        });
       }
-      setTimeout(() => {
-        this.loading = false;
-      }, 800);
     },
     handleClearAlert() {
       this.clear();

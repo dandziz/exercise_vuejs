@@ -24,18 +24,17 @@ const User = {
     },
   },
   actions: {
-    login({ dispatch, commit }, object) {
+    async login({ dispatch, commit }, object) {
       const { account, password, memory } = object;
-      userService.login({ account, password, memory }).then((account) => {
-        if (account) {
-          dispatch("alert/success", "Đăng nhập thành công!", { root: true });
-          commit("loginSuccess", account);
-          router.push("/");
-        } else {
-          dispatch("alert/danger", "Đăng nhập thất bại!", { root: true });
-          return false;
-        }
-      });
+      const user = await userService.login({ account, password, memory });
+      if (user) {
+        dispatch("alert/success", "Đăng nhập thành công!", { root: true });
+        commit("loginSuccess", user);
+        router.push("/");
+      } else {
+        dispatch("alert/danger", "Đăng nhập thất bại!", { root: true });
+        return "failed";
+      }
     },
     logout({ dispatch, commit }) {
       userService.logout();
