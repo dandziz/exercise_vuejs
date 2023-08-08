@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { authLogin } from "../helpers/index";
+//import { authLogin } from "../helpers/index";
 import Login from "../views/Login.vue";
 import HomePage from "../views/HomePage.vue";
 import Customers from "../views/Customers.vue";
@@ -55,6 +55,7 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
+/*
 router.beforeEach((to, from, next) => {
   const publicPages = ["/login"];
   const authRequired = !publicPages.includes(to.path);
@@ -74,5 +75,5 @@ router.beforeEach((to, from, next) => {
   } else {
     return next("/login");
   }
-});
+});*/
 export default router;
