@@ -31,11 +31,14 @@ const Customer = {
     },
   },
   actions: {
-    async getByEmail({ commit }, email) {
+    getByEmail({ state, commit }, email) {
       try {
-        const customer = await customerService.getByEmail(email);
-        if (customer) {
-          commit("getByEmail", customer);
+        const result = state.customerList.filter(
+          (customer) => customer.email === email
+        );
+        const customer = JSON.parse(JSON.stringify(result));
+        if (Array.isArray(customer) && customer.length > 0) {
+          commit("getByEmail", customer[0]);
           return customer;
         } else {
           return false;
@@ -44,11 +47,14 @@ const Customer = {
         return false;
       }
     },
-    async getByUsername({ commit }, username) {
+    async getByUsername({ state, commit }, username) {
       try {
         commit("emptyFunction");
-        const customer = await customerService.getByUsername(username);
-        if (customer) {
+        const result = state.customerList.filter(
+          (customer) => customer.username === username
+        );
+        const customer = JSON.parse(JSON.stringify(result));
+        if (Array.isArray(customer) && customer.length > 0) {
           return customer;
         } else {
           return false;
@@ -72,7 +78,7 @@ const Customer = {
           return true;
         } else {
           dispatch(
-            "alert/error",
+            "alert/danger",
             "Thêm người dùng vào hệ thống thất bại. Vui lòng thử lại!",
             { root: true }
           );

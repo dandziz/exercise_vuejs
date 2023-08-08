@@ -383,7 +383,7 @@ export default {
           this.$store.state.modal.modal.hide();
         } else {
           this.$store.dispatch(
-            "alert/error",
+            "alert/danger",
             "Thêm người dùng thất bại vui lòng thử lại!"
           );
         }
