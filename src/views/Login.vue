@@ -90,6 +90,7 @@ export default {
       password: passwordRules,
     });
     let store_user = undefined;
+    store.dispatch("user/logout");
     store.dispatch("user/getRememberAccount");
     store_user = store.state.user.rememberAccount;
     const account = ref("");
